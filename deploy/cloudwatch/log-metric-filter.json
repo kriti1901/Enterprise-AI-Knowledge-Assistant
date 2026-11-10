@@ -1,0 +1,13 @@
+{
+  "logGroupName": "/ecs/knowledge-assistant-api",
+  "filterName": "LiveAnswerCount",
+  "filterPattern": "{ $.msg = \"chat\" && $.cached = false }",
+  "metricTransformations": [
+    {
+      "metricName": "LiveAnswerCount",
+      "metricNamespace": "EnterpriseKnowledgeAssistant",
+      "metricValue": "1",
+      "defaultValue": 0
+    }
+  ]
+}

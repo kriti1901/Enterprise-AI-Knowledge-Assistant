@@ -1,0 +1,9 @@
+Incident Response Runbook
+
+A severity 1 incident is any outage that affects more than 10 percent of customers or any data-loss event. The on-call engineer must acknowledge a severity 1 page within 5 minutes and open an incident channel.
+
+For severity 1 incidents, a status page update is published within 15 minutes. Post-incident reviews are due within 5 working days and must include a timeline, root cause, and action items with owners.
+
+Production database changes outside a maintenance window require approval from the database owner. Rollback is preferred over forward fixes during an active severity 1 incident.
+
+Secrets must never be pasted into incident channels. Rotate any credential that was exposed.
