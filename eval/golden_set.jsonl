@@ -1,0 +1,7 @@
+{"question": "How many days of paid annual leave do full-time employees get each year?", "relevant_title": "Leave Policy", "expected": "20"}
+{"question": "How many paid sick days does an employee receive per year?", "relevant_title": "Leave Policy", "expected": "10"}
+{"question": "How long must a leave request be submitted in advance for periods longer than 5 days?", "relevant_title": "Leave Policy", "expected": "2 weeks"}
+{"question": "What is the deadline for submitting expense claims?", "relevant_title": "Expense Reimbursement", "expected": "30 days"}
+{"question": "Is personal entertainment reimbursable?", "relevant_title": "Expense Reimbursement", "expected": "never"}
+{"question": "How quickly must the on-call engineer acknowledge a severity 1 page?", "relevant_title": "Incident Response", "expected": "5 minutes"}
+{"question": "When are post-incident reviews due?", "relevant_title": "Incident Response", "expected": "5 working days"}

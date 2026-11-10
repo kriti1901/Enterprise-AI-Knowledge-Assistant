@@ -1,0 +1,13 @@
+{
+  "AlarmName": "KnowledgeAssistant-HighQueryLatency",
+  "AlarmDescription": "Average /chat latency above 5 seconds for 3 consecutive minutes",
+  "Namespace": "EnterpriseKnowledgeAssistant",
+  "MetricName": "QueryLatencyMs",
+  "Statistic": "Average",
+  "Period": 60,
+  "EvaluationPeriods": 3,
+  "Threshold": 5000,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": ["arn:aws:sns:us-east-1:123456789012:REPLACE_ME_ALERTS"]
+}
