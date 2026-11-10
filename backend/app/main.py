@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 
 from app.agent import run_agent
 from app.cache import get_cached_answer, set_cached_answer
-from app.config import get_settings
+from app.config import get_settings, validate_secrets
 from app.db import Conversation, Document, EvalRun, Message, User, get_session, init_db, new_session
 from app.ingestion import UnsupportedFileError
 from app.llm import get_llm
@@ -30,8 +30,9 @@ DbSession = Annotated[Session, Depends(get_session)]
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     configure_logging()
-    init_db()
     settings = get_settings()
+    validate_secrets(settings)
+    init_db()
     with new_session() as session:
         if settings.admin_username and settings.admin_password:
             exists = session.scalar(select(User).where(User.username == settings.admin_username))

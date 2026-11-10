@@ -16,7 +16,7 @@ os.environ.update(
         "UPLOAD_DIR": str(_tmp / "uploads"),
         "EMBEDDING_BACKEND": "hash",
         "LLM_PROVIDER": "fake",
-        "JWT_SECRET": "test-secret",
+        "JWT_SECRET": "test-secret-that-is-at-least-32-characters-long",
         "ADMIN_USERNAME": "admin",
         "ADMIN_PASSWORD": "admin-password-123",
         "EVAL_DIR": str(REPO_ROOT / "eval"),

@@ -26,7 +26,9 @@ services:
 
   api:
     build: ./backend
-    env_file: .env
+    env_file:
+      - path: .env
+        required: false  # docker compose still starts; the app refuses to run without JWT_SECRET
     environment:
       DATABASE_URL: postgresql+psycopg://knowledge:${POSTGRES_PASSWORD:-knowledge-dev-password}@postgres:5432/knowledge
       REDIS_URL: redis://redis:6379/0

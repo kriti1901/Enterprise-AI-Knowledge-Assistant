@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     eval_dir: str = "../eval"
 
     # Auth
-    jwt_secret: str = "change-me-in-production"
+    jwt_secret: str = ""  # required; must be set via JWT_SECRET (at least 32 characters)
     jwt_expire_minutes: int = 60
     admin_username: str | None = None
     admin_password: str | None = None
@@ -45,6 +45,18 @@ class Settings(BaseSettings):
     cloudwatch_enabled: bool = False
     cloudwatch_namespace: str = "EnterpriseKnowledgeAssistant"
     aws_region: str = "us-east-1"
+
+
+MIN_JWT_SECRET_LENGTH = 32
+
+
+def validate_secrets(settings: Settings) -> None:
+    """Refuse to start with a missing or weak JWT secret, since it signs every login token."""
+    if len(settings.jwt_secret) < MIN_JWT_SECRET_LENGTH:
+        raise RuntimeError(
+            f"JWT_SECRET must be set and at least {MIN_JWT_SECRET_LENGTH} characters long. "
+            "Generate one with: python -c \"import secrets; print(secrets.token_urlsafe(48))\""
+        )
 
 
 @lru_cache
